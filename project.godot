@@ -12,7 +12,18 @@ config_version=5
 
 config/name="Escape Room Gd"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://iconvr.png"
+
+[display]
+
+window/size/viewport_width=676
+window/size/viewport_height=424
+window/stretch/mode="canvas_items"
+
+[layer_names]
+
+3d_physics/layer_1="mundo"
+3d_physics/layer_2="player"
 
 [rendering]
 

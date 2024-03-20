@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://6d46mwwcaidc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q38xe"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_67sso"]
+data = PackedVector3Array(-100, 0.5, 100, 100, 0.5, 100, -100, -0.5, 100, 100, 0.5, 100, 100, -0.5, 100, -100, -0.5, 100, 100, 0.5, -100, -100, 0.5, -100, 100, -0.5, -100, -100, 0.5, -100, -100, -0.5, -100, 100, -0.5, -100, 100, 0.5, 100, 100, 0.5, -100, 100, -0.5, 100, 100, 0.5, -100, 100, -0.5, -100, 100, -0.5, 100, -100, 0.5, -100, -100, 0.5, 100, -100, -0.5, -100, -100, 0.5, 100, -100, -0.5, 100, -100, -0.5, -100, 100, 0.5, 100, -100, 0.5, 100, 100, 0.5, -100, -100, 0.5, 100, -100, 0.5, -100, 100, 0.5, -100, -100, -0.5, 100, 100, -0.5, 100, -100, -0.5, -100, 100, -0.5, 100, 100, -0.5, -100, -100, -0.5, -100)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bivd"]
+
+[sub_resource type="Sky" id="Sky_78x2w"]
+sky_material = SubResource("ProceduralSkyMaterial_1bivd")
+
+[sub_resource type="Environment" id="Environment_lfhvc"]
+background_mode = 2
+sky = SubResource("Sky_78x2w")
+
+[node name="mundo" type="Node3D"]
+
+[node name="chaoprincipal" type="MeshInstance3D" parent="."]
+editor_description = "layer mundo"
+mesh = SubResource("BoxMesh_q38xe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="chaoprincipal"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chaoprincipal/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_67sso")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 39.5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lfhvc")
